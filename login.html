@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great book</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+   <style> #mapid { height: 400px; width: 100%; } </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="buttons-container">
+        <!-- Кнопка 1 -->
+        <a href="about.html" class="button">HTML</a>
+        
+        <!-- Кнопка 2 -->
+        <a href="css.html" class="button">CSS</a>
+        
+        <!-- Кнопка 3 -->
+        <a href="js.html" class="button">JS</a>
+    </div>
+
+    <header>
+        <h1>Геолокационная Карта</h1>
+    </header>
+    <main>
+        <section class="contact-info">
+            <h2>Контактная информация</h2>
+            <p><strong>Название компании:</strong> ООО "Пример"</p>
+            <p><strong>Адрес головного офиса:</strong> г. Москва, ул. Тверская, д. 123</p>
+            <p><strong>Телефон:</strong> +7 (495) 123-45-67</p>
+            <p><strong>Email:</strong> info@example.com</p>
+            <div id="mapid"></div>
+        </section>
+        <section class="other-info">
+            <h2>Дополнительная информация</h2>
+        </section>
+    </main>
+    <footer>
+        © 2024 ООО "Пример". Все права защищены.
+    </footer>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <script> var mymap = L.map('mapid').setView([55.7558, 37.6173], 13); L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' }).addTo(mymap); if ("geolocation" in navigator) { navigator.geolocation.getCurrentPosition(function(position) { var lat = position.coords.latitude; var lon = position.coords.longitude; var currentLocation = [lat, lon]; mymap.setView(currentLocation, 14); L.marker(currentLocation).addTo(mymap) .bindPopup("Вы здесь!") .openPopup(); }, function(error) { console.error("Ошибка получения геолокации:", error); alert("Не удалось получить ваше местоположение. Попробуйте позже."); }); } else { alert("Ваш браузер не поддерживает геолокацию."); } </script>
+</body>
+</html>
