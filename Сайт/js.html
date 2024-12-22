@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Изучение JS основ</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">Основы HTML</a></li>
+                <li><a href="css.html">Основы CSS</a></li>
+                <li><a href="js.html">Основы JS</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>О нас</h1>
+        <p>Наша компания занимается разработкой программного обеспечения и веб-сайтов уже более 10 лет.</p>
+    </main>
+
+    <header>
+        <h1>Учимся JS</h1>
+        <p>Добро пожаловать на платформу для освоения JS-разметки!</p>
+    </header>
+
+    <main>
+        <section id="tutorial">
+            <h2>Основные теги JS</h2>
+            <p> <strong>1. Динамическое выполнение кода</strong> </p>
+            <p></p>
+            <p>JavaScript позволяет динамически изменять содержимое страницы без перезагрузки. Это достигается за счет манипуляций с DOM (Document Object Model), который представляет собой структуру документа HTML. Например, можно добавлять новые элементы, скрывать существующие, менять стили и т.д.</p>
+            <p></p>
+            <p> Пример изменения текста заголовка: </p>
+            <p></p>
+                <p>
+                document.getElementById('header').innerText = 'Новый заголовок';
+                </p>
+            <p></p>
+            <p><strong>2. Асинхронность</strong></p>
+            <p>JavaScript поддерживает асинхронное программирование, что особенно полезно при выполнении длительных операций, таких как запросы к серверу. Это позволяет избежать блокировки основного потока выполнения программы.</p>
+            <p></p>
+                
+            <p>Пример использования fetch для получения данных с сервера:</p>
+            <p></p>
+                
+                
+            <p>fetch('https://example.com/api/data')<br>
+                  .then(response => response.json())<br>
+                  .then(data => console.log(data))<br>
+                  .catch(error => console.error('Ошибка:', error));</p>
+            <p></p>
+            <p> <strong>3. Функции высшего порядка</strong> </p>
+            <p>Функции в JavaScript являются объектами первого класса, что означает, что они могут быть переданы как аргументы другим функциям, возвращены из функций и присвоены переменным. Это открывает возможности для функционального программирования.</p>
+            <p></p>
+            <p>Пример передачи функции в другую функцию:</p>
+            <p></p>
+                
+                
+                <p>function greet(name, callback) {
+                  callback(`Привет, ${name}!`);
+                }</p>
+                <p></p>
+                <p>greet('Мир', alert); // Выведет окно с сообщением "Привет, Мир!"</p>
+                <p></p>
+            <p><strong>4. Объектно-ориентированное программирование</strong></p>
+            <p></p>
+            <p>Хотя JavaScript изначально был прототипным языком, он также поддерживает объектно-ориентированный стиль программирования благодаря классам, добавленным в ES6.</p>
+            <p></p>
+            <p>Пример определения класса:</p>
+            <p></p>
+                
+            <p>class User {<br>
+                  constructor(name, age) {<br>
+                    this.name = name;<br>
+                    this.age = age;<br>
+                  }<br>
+                  
+                  sayHello() {<br>
+                    console.log(`Привет! Меня зовут ${this.name}, мне ${this.age} лет.`);<br>
+                  }<br>
+                }<br>
+                
+                const user = new User('Иван', 30);<br>
+                user.sayHello(); // Привет! Меня зовут Иван, мне 30 лет.</p>
+            <p> <strong>5. Модули</strong> </p>
+            <p></p>
+            <p>Модульная система в JavaScript позволяет разбивать код на отдельные модули, каждый из которых может экспортировать и импортировать определенные части своего функционала. Это помогает организовать код и управлять зависимостями.</p>
+            <p></p> 
+            <p>Пример экспорта и импорта модуля:</p>
+            <p></p>
+                
+                
+                <p>// file.js<br>
+                export function add(a, b) {<br>
+                  return a + b;<br>
+                }<br>
+                
+                // main.js<br>
+                import { add } from './file.js';<br>
+                console.log(add(2, 3)); // 5</p>
+            <p> <strong>6. Управление событиями</strong> </p>
+            <p></p>
+            <p>JavaScript предоставляет мощные механизмы для управления событиями, такими как клики мыши, прокрутка страницы, загрузка документов и многое другое. События позволяют реагировать на действия пользователя и выполнять соответствующие операции.</p>
+            <p></p>
+            <p>Пример добавления обработчика события на клик:</p>
+            <p></p>
+                
+                
+                <p>document.getElementById('myButton').addEventListener('click', function() {<br>
+                  alert('Кнопка была нажата!');<br>
+                });</p>
+            <p> <strong>7. Работа с JSON</strong> </p>
+            <p>JSON (JavaScript Object Notation) — это формат обмена данными, основанный на синтаксисе объектов JavaScript. JavaScript предоставляет встроенные методы для преобразования данных в JSON и обратно.</p>
+            <p></p>
+            <p>Пример преобразования объекта в строку JSON:</p>
+            <p></p>
+                
+                
+            <p>const user = { name: 'Иван', age: 30 };<br>
+                const jsonString = JSON.stringify(user);<br>
+                console.log(jsonString); // {"name":"Иван","age":30}</p>
+            <p> <strong>8. Поддержка современных стандартов</strong> </p>
+            <p>
+                JavaScript постоянно развивается, и современные стандарты, такие как ECMAScript 2015 (ES6) и последующие версии, добавляют новые возможности и улучшения. Это включает стрелочные функции, деструктуризацию, классы, промисы и многое другое.</p>
+            <p></p>
+            <p>Пример использования стрелочной функции:</p>
+            <p></p>
+                
+            <p>const numbers = [1, 2, 3, 4, 5];<br>
+                const doubledNumbers = numbers.map(num => num * 2);<br>
+                console.log(doubledNumbers); // [2, 4, 6, 8, 10]</p>
+        </section>
+
+        <section id="practice">
+            <h2>Практикуемся</h2>
+            <label for="input-code">Введите JS-код:</label>
+            <textarea id="input-code" rows="10" cols="50" placeholder="Ваш JS-код здесь..."></textarea>
+            <br>
+            <button id="submit-code">Посмотреть результат</button>
+            <iframe id="output-frame" title="Результат HTML-кода"></iframe>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Учимся JS</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <footer>
+        <p>© 2024 Наша компания</p>
+    </footer>
+</body>
+</html>
